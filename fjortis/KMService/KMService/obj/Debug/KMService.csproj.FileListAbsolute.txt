@@ -1,0 +1,30 @@
+c:\users\stefania eng\documents\visual studio 2013\Projects\KMService\obj\Debug\KMService.csprojResolveAssemblyReference.cache
+C:\Users\stefania eng\documents\visual studio 2013\Projects\KMService\bin\KMService.dll.config
+C:\Users\stefania eng\documents\visual studio 2013\Projects\KMService\bin\KMService.dll
+C:\Users\stefania eng\documents\visual studio 2013\Projects\KMService\bin\KMService.pdb
+C:\Users\stefania eng\documents\visual studio 2013\Projects\KMService\bin\EntityFramework.dll
+C:\Users\stefania eng\documents\visual studio 2013\Projects\KMService\bin\EntityFramework.SqlServer.dll
+C:\Users\stefania eng\documents\visual studio 2013\Projects\KMService\bin\EntityFramework.xml
+C:\Users\stefania eng\documents\visual studio 2013\Projects\KMService\bin\EntityFramework.SqlServer.xml
+C:\Users\stefania eng\documents\visual studio 2013\Projects\KMService\obj\Debug\KMService.dll
+C:\Users\stefania eng\documents\visual studio 2013\Projects\KMService\obj\Debug\KMService.pdb
+C:\Users\Hubbajonte\Documents\KMService\KMService\bin\KMService.dll.config
+C:\Users\Hubbajonte\Documents\KMService\KMService\bin\KMService.dll
+C:\Users\Hubbajonte\Documents\KMService\KMService\bin\KMService.pdb
+C:\Users\Hubbajonte\Documents\KMService\KMService\bin\EntityFramework.dll
+C:\Users\Hubbajonte\Documents\KMService\KMService\bin\EntityFramework.SqlServer.dll
+C:\Users\Hubbajonte\Documents\KMService\KMService\bin\EntityFramework.xml
+C:\Users\Hubbajonte\Documents\KMService\KMService\bin\EntityFramework.SqlServer.xml
+C:\Users\Hubbajonte\Documents\KMService\KMService\obj\Debug\KMService.csprojResolveAssemblyReference.cache
+C:\Users\Hubbajonte\Documents\KMService\KMService\obj\Debug\KMService.dll
+C:\Users\Hubbajonte\Documents\KMService\KMService\obj\Debug\KMService.pdb
+C:\Users\stefania eng\Downloads\KMService\KMService\bin\KMService.dll.config
+C:\Users\stefania eng\Downloads\KMService\KMService\bin\KMService.dll
+C:\Users\stefania eng\Downloads\KMService\KMService\bin\KMService.pdb
+C:\Users\stefania eng\Downloads\KMService\KMService\bin\EntityFramework.dll
+C:\Users\stefania eng\Downloads\KMService\KMService\bin\EntityFramework.SqlServer.dll
+C:\Users\stefania eng\Downloads\KMService\KMService\bin\EntityFramework.xml
+C:\Users\stefania eng\Downloads\KMService\KMService\bin\EntityFramework.SqlServer.xml
+C:\Users\stefania eng\Downloads\KMService\KMService\obj\Debug\KMService.csprojResolveAssemblyReference.cache
+C:\Users\stefania eng\Downloads\KMService\KMService\obj\Debug\KMService.dll
+C:\Users\stefania eng\Downloads\KMService\KMService\obj\Debug\KMService.pdb

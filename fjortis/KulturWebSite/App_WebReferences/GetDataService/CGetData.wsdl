@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="CGetData" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:49187/CGetData.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:49187/CGetData.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:49187/CGetData.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/KMService" />
+      <xsd:import schemaLocation="http://localhost:49187/CGetData.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IGetData_getSingle_InputMessage">
+    <wsdl:part name="parameters" element="tns:getSingle" />
+  </wsdl:message>
+  <wsdl:message name="IGetData_getSingle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getSingleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGetData_getChosenClick_InputMessage">
+    <wsdl:part name="parameters" element="tns:getChosenClick" />
+  </wsdl:message>
+  <wsdl:message name="IGetData_getChosenClick_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getChosenClickResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGetData_getFiltred_InputMessage">
+    <wsdl:part name="parameters" element="tns:getFiltred" />
+  </wsdl:message>
+  <wsdl:message name="IGetData_getFiltred_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getFiltredResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGetData_getLogin_InputMessage">
+    <wsdl:part name="parameters" element="tns:getLogin" />
+  </wsdl:message>
+  <wsdl:message name="IGetData_getLogin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGetData_getKommun_InputMessage">
+    <wsdl:part name="parameters" element="tns:getKommun" />
+  </wsdl:message>
+  <wsdl:message name="IGetData_getKommun_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getKommunResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGetData_getProfile_InputMessage">
+    <wsdl:part name="parameters" element="tns:getProfile" />
+  </wsdl:message>
+  <wsdl:message name="IGetData_getProfile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getProfileResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISetData_createEvent_InputMessage">
+    <wsdl:part name="parameters" element="tns:createEvent" />
+  </wsdl:message>
+  <wsdl:message name="ISetData_createEvent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:createEventResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISetData_updateEvent_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateEvent" />
+  </wsdl:message>
+  <wsdl:message name="ISetData_updateEvent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateEventResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISetData_deleteEvent_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteEvent" />
+  </wsdl:message>
+  <wsdl:message name="ISetData_deleteEvent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteEventResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISetData_updateProfile_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateProfile" />
+  </wsdl:message>
+  <wsdl:message name="ISetData_updateProfile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateProfileResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISetData_createAdmin_InputMessage">
+    <wsdl:part name="parameters" element="tns:createAdmin" />
+  </wsdl:message>
+  <wsdl:message name="ISetData_createAdmin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:createAdminResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IGetData">
+    <wsdl:operation name="getSingle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGetData/getSingle" message="tns:IGetData_getSingle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGetData/getSingleResponse" message="tns:IGetData_getSingle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getChosenClick">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGetData/getChosenClick" message="tns:IGetData_getChosenClick_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGetData/getChosenClickResponse" message="tns:IGetData_getChosenClick_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getFiltred">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGetData/getFiltred" message="tns:IGetData_getFiltred_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGetData/getFiltredResponse" message="tns:IGetData_getFiltred_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getLogin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGetData/getLogin" message="tns:IGetData_getLogin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGetData/getLoginResponse" message="tns:IGetData_getLogin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getKommun">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGetData/getKommun" message="tns:IGetData_getKommun_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGetData/getKommunResponse" message="tns:IGetData_getKommun_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getProfile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGetData/getProfile" message="tns:IGetData_getProfile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGetData/getProfileResponse" message="tns:IGetData_getProfile_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ISetData">
+    <wsdl:operation name="createEvent">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISetData/createEvent" message="tns:ISetData_createEvent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISetData/createEventResponse" message="tns:ISetData_createEvent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateEvent">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISetData/updateEvent" message="tns:ISetData_updateEvent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISetData/updateEventResponse" message="tns:ISetData_updateEvent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteEvent">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISetData/deleteEvent" message="tns:ISetData_deleteEvent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISetData/deleteEventResponse" message="tns:ISetData_deleteEvent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateProfile">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISetData/updateProfile" message="tns:ISetData_updateProfile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISetData/updateProfileResponse" message="tns:ISetData_updateProfile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="createAdmin">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISetData/createAdmin" message="tns:ISetData_createAdmin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISetData/createAdminResponse" message="tns:ISetData_createAdmin_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IGetData" type="tns:IGetData">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getSingle">
+      <soap:operation soapAction="http://tempuri.org/IGetData/getSingle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getChosenClick">
+      <soap:operation soapAction="http://tempuri.org/IGetData/getChosenClick" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getFiltred">
+      <soap:operation soapAction="http://tempuri.org/IGetData/getFiltred" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLogin">
+      <soap:operation soapAction="http://tempuri.org/IGetData/getLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getKommun">
+      <soap:operation soapAction="http://tempuri.org/IGetData/getKommun" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProfile">
+      <soap:operation soapAction="http://tempuri.org/IGetData/getProfile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_ISetData" type="tns:ISetData">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="createEvent">
+      <soap:operation soapAction="http://tempuri.org/ISetData/createEvent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateEvent">
+      <soap:operation soapAction="http://tempuri.org/ISetData/updateEvent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteEvent">
+      <soap:operation soapAction="http://tempuri.org/ISetData/deleteEvent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateProfile">
+      <soap:operation soapAction="http://tempuri.org/ISetData/updateProfile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createAdmin">
+      <soap:operation soapAction="http://tempuri.org/ISetData/createAdmin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CGetData">
+    <wsdl:port name="BasicHttpBinding_IGetData" binding="tns:BasicHttpBinding_IGetData">
+      <soap:address location="http://localhost:49187/CGetData.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_ISetData" binding="tns:BasicHttpBinding_ISetData">
+      <soap:address location="http://localhost:49187/CGetData.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

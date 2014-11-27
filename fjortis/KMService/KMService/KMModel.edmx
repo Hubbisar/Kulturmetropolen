@@ -1,0 +1,331 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblCategory">
+          <Key>
+            <PropertyRef Name="Category" />
+          </Key>
+          <Property Name="Category" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="MainCategory" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblCreator">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ContactPerson" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="Authorization" Type="varchar" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblEvent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Creator" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Content" Type="text" Nullable="false" />
+          <Property Name="Image" Type="text" />
+          <Property Name="Category" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="City" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Location" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Date" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblLink">
+          <Key>
+            <PropertyRef Name="State" />
+          </Key>
+          <Property Name="State" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Link" Type="text" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblState">
+          <Key>
+            <PropertyRef Name="City" />
+          </Key>
+          <Property Name="State" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="City" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_tblCreator_tblEvent">
+          <End Role="tblCreator" Type="Self.tblCreator" Multiplicity="1" />
+          <End Role="tblEvent" Type="Self.tblEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCreator">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblEvent">
+              <PropertyRef Name="Creator" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblEvent_tblCategory">
+          <End Role="tblCategory" Type="Self.tblCategory" Multiplicity="1" />
+          <End Role="tblEvent" Type="Self.tblEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCategory">
+              <PropertyRef Name="Category" />
+            </Principal>
+            <Dependent Role="tblEvent">
+              <PropertyRef Name="Category" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblLink_tblState">
+          <End Role="tblLink" Type="Self.tblLink" Multiplicity="1" />
+          <End Role="tblState" Type="Self.tblState" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblLink">
+              <PropertyRef Name="State" />
+            </Principal>
+            <Dependent Role="tblState">
+              <PropertyRef Name="State" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblState_tblEvent">
+          <End Role="tblState" Type="Self.tblState" Multiplicity="1" />
+          <End Role="tblEvent" Type="Self.tblEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblState">
+              <PropertyRef Name="City" />
+            </Principal>
+            <Dependent Role="tblEvent">
+              <PropertyRef Name="City" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DatabaseModelStoreContainer">
+          <EntitySet Name="tblCategory" EntityType="Self.tblCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblCreator" EntityType="Self.tblCreator" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblEvent" EntityType="Self.tblEvent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblLink" EntityType="Self.tblLink" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblState" EntityType="Self.tblState" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_tblCreator_tblEvent" Association="Self.FK_tblCreator_tblEvent">
+            <End Role="tblCreator" EntitySet="tblCreator" />
+            <End Role="tblEvent" EntitySet="tblEvent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblEvent_tblCategory" Association="Self.FK_tblEvent_tblCategory">
+            <End Role="tblCategory" EntitySet="tblCategory" />
+            <End Role="tblEvent" EntitySet="tblEvent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblLink_tblState" Association="Self.FK_tblLink_tblState">
+            <End Role="tblLink" EntitySet="tblLink" />
+            <End Role="tblState" EntitySet="tblState" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblState_tblEvent" Association="Self.FK_tblState_tblEvent">
+            <End Role="tblState" EntitySet="tblState" />
+            <End Role="tblEvent" EntitySet="tblEvent" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tblCategory">
+          <Key>
+            <PropertyRef Name="Category" />
+          </Key>
+          <Property Name="Category" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MainCategory" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="tblEvent" Relationship="Self.FK_tblEvent_tblCategory" FromRole="tblCategory" ToRole="tblEvent" />
+        </EntityType>
+        <EntityType Name="tblCreator">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="ContactPerson" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Authorization" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="tblEvent" Relationship="Self.FK_tblCreator_tblEvent" FromRole="tblCreator" ToRole="tblEvent" />
+        </EntityType>
+        <EntityType Name="tblEvent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Creator" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Category" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Date" Type="String" Nullable="false" />
+          <NavigationProperty Name="tblCategory" Relationship="Self.FK_tblEvent_tblCategory" FromRole="tblEvent" ToRole="tblCategory" />
+          <NavigationProperty Name="tblCreator" Relationship="Self.FK_tblCreator_tblEvent" FromRole="tblEvent" ToRole="tblCreator" />
+          <NavigationProperty Name="tblState" Relationship="Self.FK_tblState_tblEvent" FromRole="tblEvent" ToRole="tblState" />
+          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tblLink">
+          <Key>
+            <PropertyRef Name="State" />
+          </Key>
+          <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Link" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="tblState" Relationship="Self.FK_tblLink_tblState" FromRole="tblLink" ToRole="tblState" />
+        </EntityType>
+        <EntityType Name="tblState">
+          <Key>
+            <PropertyRef Name="City" />
+          </Key>
+          <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="tblEvent" Relationship="Self.FK_tblState_tblEvent" FromRole="tblState" ToRole="tblEvent" />
+          <NavigationProperty Name="tblLink" Relationship="Self.FK_tblLink_tblState" FromRole="tblState" ToRole="tblLink" />
+        </EntityType>
+        <Association Name="FK_tblEvent_tblCategory">
+          <End Role="tblCategory" Type="Self.tblCategory" Multiplicity="1" />
+          <End Role="tblEvent" Type="Self.tblEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCategory">
+              <PropertyRef Name="Category" />
+            </Principal>
+            <Dependent Role="tblEvent">
+              <PropertyRef Name="Category" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblCreator_tblEvent">
+          <End Role="tblCreator" Type="Self.tblCreator" Multiplicity="1" />
+          <End Role="tblEvent" Type="Self.tblEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCreator">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblEvent">
+              <PropertyRef Name="Creator" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblState_tblEvent">
+          <End Role="tblState" Type="Self.tblState" Multiplicity="1" />
+          <End Role="tblEvent" Type="Self.tblEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblState">
+              <PropertyRef Name="City" />
+            </Principal>
+            <Dependent Role="tblEvent">
+              <PropertyRef Name="City" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblLink_tblState">
+          <End Role="tblLink" Type="Self.tblLink" Multiplicity="1" />
+          <End Role="tblState" Type="Self.tblState" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblLink">
+              <PropertyRef Name="State" />
+            </Principal>
+            <Dependent Role="tblState">
+              <PropertyRef Name="State" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="KMEntity" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblCategory" EntityType="Self.tblCategory" />
+          <EntitySet Name="tblCreator" EntityType="Self.tblCreator" />
+          <EntitySet Name="tblEvent" EntityType="Self.tblEvent" />
+          <EntitySet Name="tblLink" EntityType="Self.tblLink" />
+          <EntitySet Name="tblState" EntityType="Self.tblState" />
+          <AssociationSet Name="FK_tblEvent_tblCategory" Association="Self.FK_tblEvent_tblCategory">
+            <End Role="tblCategory" EntitySet="tblCategory" />
+            <End Role="tblEvent" EntitySet="tblEvent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblCreator_tblEvent" Association="Self.FK_tblCreator_tblEvent">
+            <End Role="tblCreator" EntitySet="tblCreator" />
+            <End Role="tblEvent" EntitySet="tblEvent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblState_tblEvent" Association="Self.FK_tblState_tblEvent">
+            <End Role="tblState" EntitySet="tblState" />
+            <End Role="tblEvent" EntitySet="tblEvent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblLink_tblState" Association="Self.FK_tblLink_tblState">
+            <End Role="tblLink" EntitySet="tblLink" />
+            <End Role="tblState" EntitySet="tblState" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DatabaseModelStoreContainer" CdmEntityContainer="KMEntity">
+          <EntitySetMapping Name="tblCategory">
+            <EntityTypeMapping TypeName="DatabaseModel.tblCategory">
+              <MappingFragment StoreEntitySet="tblCategory">
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="MainCategory" ColumnName="MainCategory" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCreator">
+            <EntityTypeMapping TypeName="DatabaseModel.tblCreator">
+              <MappingFragment StoreEntitySet="tblCreator">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ContactPerson" ColumnName="ContactPerson" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Authorization" ColumnName="Authorization" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblEvent">
+            <EntityTypeMapping TypeName="DatabaseModel.tblEvent">
+              <MappingFragment StoreEntitySet="tblEvent">
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Creator" ColumnName="Creator" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblLink">
+            <EntityTypeMapping TypeName="DatabaseModel.tblLink">
+              <MappingFragment StoreEntitySet="tblLink">
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblState">
+            <EntityTypeMapping TypeName="DatabaseModel.tblState">
+              <MappingFragment StoreEntitySet="tblState">
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="City" ColumnName="City" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

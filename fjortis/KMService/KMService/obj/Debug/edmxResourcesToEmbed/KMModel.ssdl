@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tblCategory">
+    <Key>
+      <PropertyRef Name="Category" />
+    </Key>
+    <Property Name="Category" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="MainCategory" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblCreator">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ContactPerson" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="Authorization" Type="varchar" MaxLength="1" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblEvent">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Creator" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Title" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Content" Type="text" Nullable="false" />
+    <Property Name="Image" Type="text" />
+    <Property Name="Category" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="City" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Location" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Date" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblLink">
+    <Key>
+      <PropertyRef Name="State" />
+    </Key>
+    <Property Name="State" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Link" Type="text" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblState">
+    <Key>
+      <PropertyRef Name="City" />
+    </Key>
+    <Property Name="State" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="City" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_tblCreator_tblEvent">
+    <End Role="tblCreator" Type="Self.tblCreator" Multiplicity="1" />
+    <End Role="tblEvent" Type="Self.tblEvent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblCreator">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tblEvent">
+        <PropertyRef Name="Creator" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblEvent_tblCategory">
+    <End Role="tblCategory" Type="Self.tblCategory" Multiplicity="1" />
+    <End Role="tblEvent" Type="Self.tblEvent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblCategory">
+        <PropertyRef Name="Category" />
+      </Principal>
+      <Dependent Role="tblEvent">
+        <PropertyRef Name="Category" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblLink_tblState">
+    <End Role="tblLink" Type="Self.tblLink" Multiplicity="1" />
+    <End Role="tblState" Type="Self.tblState" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblLink">
+        <PropertyRef Name="State" />
+      </Principal>
+      <Dependent Role="tblState">
+        <PropertyRef Name="State" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblState_tblEvent">
+    <End Role="tblState" Type="Self.tblState" Multiplicity="1" />
+    <End Role="tblEvent" Type="Self.tblEvent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblState">
+        <PropertyRef Name="City" />
+      </Principal>
+      <Dependent Role="tblEvent">
+        <PropertyRef Name="City" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DatabaseModelStoreContainer">
+    <EntitySet Name="tblCategory" EntityType="Self.tblCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblCreator" EntityType="Self.tblCreator" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblEvent" EntityType="Self.tblEvent" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblLink" EntityType="Self.tblLink" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblState" EntityType="Self.tblState" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_tblCreator_tblEvent" Association="Self.FK_tblCreator_tblEvent">
+      <End Role="tblCreator" EntitySet="tblCreator" />
+      <End Role="tblEvent" EntitySet="tblEvent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblEvent_tblCategory" Association="Self.FK_tblEvent_tblCategory">
+      <End Role="tblCategory" EntitySet="tblCategory" />
+      <End Role="tblEvent" EntitySet="tblEvent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblLink_tblState" Association="Self.FK_tblLink_tblState">
+      <End Role="tblLink" EntitySet="tblLink" />
+      <End Role="tblState" EntitySet="tblState" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblState_tblEvent" Association="Self.FK_tblState_tblEvent">
+      <End Role="tblState" EntitySet="tblState" />
+      <End Role="tblEvent" EntitySet="tblEvent" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
