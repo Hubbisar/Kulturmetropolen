@@ -20,10 +20,10 @@ public class CDisplayEvents
     public MEvent displayOneEvent(int id) 
     {
         MEvent oneEvent = new MEvent();
-        GetDataService.GetDataClient GetClient = new GetDataService.GetDataClient();
+        GetDataService.GetDataClient getClient = new GetDataService.GetDataClient();
         GetDataService.EventModel getModel = new GetDataService.EventModel();
 
-        getModel = GetClient.getSingle(id);
+        getModel = getClient.getSingle(id);
         oneEvent.id = getModel.Id;
         oneEvent.title = getModel.Title;
         oneEvent.creator = getModel.Creator;
@@ -36,9 +36,13 @@ public class CDisplayEvents
         return oneEvent;
     }
 
-    public void displayMultiplyEvents() 
+    public MEvent[] displayMultiplyEvents(string condition) 
     {
-    
+        MEvent[] oneEvent;
+        GetDataService.GetDataClient getClient = new GetDataService.GetDataClient();
+        GetDataService.EventModel[] getModel = new GetDataService.EventModel();
+        
+
     }
 	
 }

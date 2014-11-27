@@ -14,7 +14,7 @@ public class CForm
 		// TODO: Add constructor logic here
 		//
 	}
-    public void validateEvent(System.Web.UI.WebControls.TextBox title)
+    public void validateEvent()
     {
 
     }
